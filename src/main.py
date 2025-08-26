@@ -29,18 +29,30 @@ class TicTacToe:
         return ' ' not in self.board[1:]
 
     def show_board(self):
-        print("\n")
-        rows = [[self.board[i+j] for i in range(1, 4)] for j in range(0, 7, 3)]
-        for row in rows:
-            print(row)
-        print("\n")
+        print('\n')
+        print(f' {self.board[1]} | {self.board[2]} | {self.board[3]} ')
+        print('-----------')
+        print(f' {self.board[4]} | {self.board[5]} | {self.board[6]} ')
+        print('-----------')
+        print(f' {self.board[7]} | {self.board[8]} | {self.board[9]} ')
+        print('\n')
+
+    def show_board_positions(self):
+        print('\nCell positions:')
+        print(' 1 | 2 | 3 ')
+        print('-----------')
+        print(' 4 | 5 | 6 ')
+        print('-----------')
+        print(' 7 | 8 | 9 \n')
 
     def start_game(self):
+        print("Welcome to Tic Tac Toe!")
+        self.show_board_positions()
         while True:
             self.show_board()
             try:
                 cell = input(f'Player {self.player_turn} turn. Enter Your Cell Number: (q to quit)')
-                if cell == 'q'.lower():
+                if cell.lower() == 'q':
                     print("Thanks for playing!")
                     break
                 else:
